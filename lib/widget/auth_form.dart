@@ -8,7 +8,8 @@ AuthForm(this.submitfn) ;
     String email,
     String password,
     String userName,
-    bool isLogin
+    bool isLogin,
+    BuildContext ctx
   ) submitfn;
 
   @override
@@ -29,10 +30,11 @@ class _AuthFormState extends State<AuthForm> {
     if(isValid){
       _formKey.currentState!.save();
      widget.submitfn(
-      _userEmail,
-      _userName,
-      _userPassword,
-      _islogin
+      _userEmail.trim(),
+      _userName.trim(),
+      _userPassword.trim(),
+      _islogin,
+      context
      );
     }
   }
