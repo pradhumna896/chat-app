@@ -13,7 +13,7 @@ class ChatScreen extends StatelessWidget {
             .snapshots(),
         builder: (context, streamSnapshot) {
           if(streamSnapshot.connectionState==ConnectionState.waiting){
-            return Center(child: CircularProgressIndicator(),);
+            return const Center(child: CircularProgressIndicator(),);
           }
           return ListView.builder(
               itemCount: streamSnapshot.data!.docs.length,

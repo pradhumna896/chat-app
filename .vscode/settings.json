@@ -1,0 +1,7 @@
+{
+    "dart.daemonPort": 1,
+    "dart.enableServerSnippets": true,
+    "dart.previewFlutterUiGuides": false,
+    "dart.previewCommitCharacters": false,
+    "dart.normalizeFileCasing": false
+}
