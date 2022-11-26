@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,8 +17,8 @@ FirebaseAuth _auth = FirebaseAuth.instance;
 class _AuthScreenState extends State<AuthScreen> {
   void _submitAuthForm(
       String email,
-       String password,
-        String username,
+       String username,
+        String password,
          bool isLogin,
          BuildContext ctx
          ) async {
@@ -29,6 +30,10 @@ class _AuthScreenState extends State<AuthScreen> {
       } else {
         authResult = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
+        await FirebaseFirestore.instance.collection("Users").doc(authResult.user.uid).set({
+            "username":username,
+            "email":email
+        });    
       }
     } on PlatformException catch (err) {
       var message = "An error occurred , please check your credentials!";
