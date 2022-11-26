@@ -3,7 +3,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class AuthForm extends StatefulWidget {
-AuthForm(this.submitfn) ;
+AuthForm(this.submitfn,this.isLoading) ;
+  final bool isLoading;
   final void Function(
     String email,
     String password,
@@ -98,6 +99,9 @@ class _AuthFormState extends State<AuthForm> {
               SizedBox(
                 height: 12,
               ),
+              if(widget.isLoading)
+              CircularProgressIndicator(),
+              if(!widget.isLoading)
               ElevatedButton(onPressed: _trySubmit, child: Text(_islogin?"Login":"SignUp")),
               TextButton(onPressed: (){
                 setState(() {
