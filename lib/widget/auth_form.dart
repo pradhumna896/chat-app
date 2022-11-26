@@ -3,7 +3,13 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class AuthForm extends StatefulWidget {
-  const AuthForm({Key? key}) : super(key: key);
+AuthForm(this.submitfn) ;
+  final void Function(
+    String email,
+    String password,
+    String userName,
+    bool isLogin
+  ) submitfn;
 
   @override
   State<AuthForm> createState() => _AuthFormState();
@@ -22,9 +28,12 @@ class _AuthFormState extends State<AuthForm> {
     FocusScope.of(context).unfocus();
     if(isValid){
       _formKey.currentState!.save();
-      print(_userEmail);
-      print(_userName);
-      print(_userPassword);
+     widget.submitfn(
+      _userEmail,
+      _userName,
+      _userPassword,
+      _islogin
+     );
     }
   }
 
@@ -42,6 +51,7 @@ class _AuthFormState extends State<AuthForm> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextFormField(
+                key: ValueKey("email address"),
                 validator: ((value) {
                   if(value!.isEmpty || !value.contains("@")){
                     return 'Please enter a valid email address';
@@ -56,6 +66,7 @@ class _AuthFormState extends State<AuthForm> {
               ),
               if(!_islogin)
               TextFormField(
+                key: ValueKey("name"),
                  onSaved: (newValue) {
                   _userName= newValue!;
                 },
@@ -68,6 +79,7 @@ class _AuthFormState extends State<AuthForm> {
                 decoration: InputDecoration(label: Text("Username")),
               ),
               TextFormField(
+                key: ValueKey("Password"),
                  onSaved: (newValue) {
                   _userPassword= newValue!;
                 },
