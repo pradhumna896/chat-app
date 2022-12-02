@@ -105,6 +105,7 @@ class _AuthFormState extends State<AuthForm> {
               ElevatedButton(onPressed: _trySubmit, child: Text(_islogin?"Login":"SignUp")),
               TextButton(onPressed: (){
                 setState(() {
+                  print(_islogin);
                   _islogin= !_islogin;
                 });
               }, child: Text(_islogin?"Create new Account":"I already have an account"))

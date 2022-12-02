@@ -34,7 +34,7 @@ class _AuthScreenState extends State<AuthScreen> {
       } else {
         authResult = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
-        await FirebaseFirestore.instance.collection("Users").doc(authResult.user.uid).set({
+        await FirebaseFirestore.instance.collection("users").doc(authResult.user.uid).set({
             "username":username,
             "email":email
         });    
@@ -51,13 +51,8 @@ class _AuthScreenState extends State<AuthScreen> {
           .showSnackBar(
             SnackBar(content: Text(message)));
     } catch(err){
-      setState(() {
-        _isloading=false;
-      });
-      ScaffoldMessenger.of(ctx)
-          .showSnackBar(
-            SnackBar(content: Text(err.toString())));
-      print(err);      
+   
+           
      
     }
   }
