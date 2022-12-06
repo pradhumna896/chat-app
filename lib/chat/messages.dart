@@ -42,7 +42,8 @@ class _MessagesState extends State<Messages> {
                   return MessageBubble(
                     chatDocs[index]['text'],
                     chatDocs[index]['username'],
-                    chatDocs[index]['userId'] == FirebaseAuth.instance.currentUser!.uid,
+                    chatDocs[index]['userId'] ==
+                        FirebaseAuth.instance.currentUser!.uid,
                     key: ValueKey(chatDocs[index]),
                   );
                 }));
