@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 
 class NewMessages extends StatefulWidget {
   const NewMessages({Key? key}) : super(key: key);

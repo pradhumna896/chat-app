@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserImagePicker extends StatefulWidget {
-  const UserImagePicker({Key? key}) : super(key: key);
+  UserImagePicker(this.imagePickFn);
 
+ final void Function(XFile pickedImage) imagePickFn;
   @override
   State<UserImagePicker> createState() => _UserImagePickerState();
 }
@@ -18,6 +19,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
    setState(() {
      _pickImage= XFile(pickedImageFile!.path);
    });
+   widget.imagePickFn(pickedImageFile!);
   }
   @override
   Widget build(BuildContext context) {
