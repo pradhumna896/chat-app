@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'dart:core';
 
-import 'package:google_fonts/google_fonts.dart';
-
 class MessageBubble extends StatelessWidget {
-  MessageBubble(
+  const MessageBubble(
     this.message,
     this.userName,
   
@@ -42,7 +41,7 @@ class MessageBubble extends StatelessWidget {
            
               Row(
                 children: [
-                  Text("send by:"),
+                  const Text("send by:"),
                   Text(userName,),
                 ],
               ),

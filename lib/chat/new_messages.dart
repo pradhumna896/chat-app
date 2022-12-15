@@ -14,7 +14,7 @@ class _NewMessagesState extends State<NewMessages> {
   TextEditingController _controller = TextEditingController();
   void _sendMessage() async{
     FocusScope.of(context).unfocus();
-   final user = await FirebaseAuth.instance.currentUser;
+   final user = FirebaseAuth.instance.currentUser;
    final userData = await FirebaseFirestore.instance.collection("users").doc(user!.uid).get();
     FirebaseFirestore.instance
         .collection('chat')
@@ -29,8 +29,8 @@ class _NewMessagesState extends State<NewMessages> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(8),
+      margin:const EdgeInsets.only(top: 8),
+      padding:const EdgeInsets.all(8),
       child: Row(
         children: [
           Expanded(
@@ -46,7 +46,7 @@ class _NewMessagesState extends State<NewMessages> {
           IconButton(
               color: Theme.of(context).primaryColor,
               onPressed: _enteredMessage.trim().isEmpty ? null :_sendMessage,
-              icon: Icon(Icons.send))
+              icon:const Icon(Icons.send))
         ],
       ),
     );

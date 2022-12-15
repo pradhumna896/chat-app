@@ -38,8 +38,8 @@ class ChatScreen extends StatelessWidget {
               })
         ],
       ),
-      body:Container(
-        child: Column(children: [
+      body: Container(
+        child: Column(children: const [
           Expanded(child: Messages()),
           NewMessages()
         ],),

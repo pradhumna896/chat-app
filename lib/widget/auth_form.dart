@@ -31,7 +31,8 @@ class _AuthFormState extends State<AuthForm> {
     _userImageFile = image;
   }
 
-  void _trySubmit() {
+  void 
+  _trySubmit() {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
     if (_userImageFile == null && !_islogin) {
@@ -55,7 +56,7 @@ class _AuthFormState extends State<AuthForm> {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: EdgeInsets.all(20),
+        margin:const EdgeInsets.all(20),
         child: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -105,12 +106,12 @@ class _AuthFormState extends State<AuthForm> {
                       return null;
                     }),
                     obscureText: true,
-                    decoration: InputDecoration(label: Text("Password")),
+                    decoration: const InputDecoration(label: Text("Password")),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  if (widget.isLoading) CircularProgressIndicator(),
+                  if (widget.isLoading) const CircularProgressIndicator(),
                   if (!widget.isLoading)
                     ElevatedButton(
                         onPressed: _trySubmit,
